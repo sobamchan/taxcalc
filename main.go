@@ -8,12 +8,12 @@ import (
 func main() {
     var income float64
 
-    // fmt.Print("Enter Monthly income: ")
-    // _, err := fmt.Scanf("%f", &income)
-    // if err != nil {
-    //     fmt.Println(err)
-    // }
-    income = 3500000
+    fmt.Print("Enter Monthly income: ")
+    _, err := fmt.Scanf("%f", &income)
+    if err != nil {
+        fmt.Println(err)
+    }
+    income *= 12  // To annual income
 
     // 所得税
     var baseShotokuDeduction, shotokuDeduction float64
@@ -59,9 +59,9 @@ func main() {
     zyuminZei := zyuminKazeiShotoku * 0.1
 
     fmt.Printf("年収:     %f\n", income)
-    fmt.Printf("控除額:   %f\n", shotokuDeduction)
-    fmt.Printf("課税所得: %f\n", kazeiShotoku)
     fmt.Printf("所得税: %f\n", shotokuZei)
     fmt.Printf("住民税: %f\n", zyuminZei)
+    fmt.Printf("所得税 + 住民税: %f\n", shotokuZei + zyuminZei)
+    fmt.Printf("年収 - (所得税 + 住民税): %f\n", income - (shotokuZei + zyuminZei))
 
 }
